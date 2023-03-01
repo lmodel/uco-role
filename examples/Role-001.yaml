@@ -1,0 +1,11 @@
+# Example data object
+createdBy: https://example.com/author
+description: something
+externalReference: https://example.com
+hasFacet: https://example.com/facettype
+modifiedTime: '2008-10-10T12:00:00'
+name: first thing
+objectMarking: https://example.com/markingtype
+objectCreatedTime: '2009-10-10T12:00:00'
+specVersion: 0.1.1
+tag: testdata
