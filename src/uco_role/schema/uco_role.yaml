@@ -1,0 +1,111 @@
+---
+id: https://w3id.org/lmodel/uco-role
+name: uco-role
+title: UCO Role
+description: >-
+  Roles in Unified Cyber Ontology
+license: https://www.apache.org/licenses/LICENSE-2.0
+
+version: 1.1.0  # sync with primary git repo release tag
+
+## ------------
+##
+## PREFIXES
+## ------------
+# CURIE namespaces (prefixes/base URI's) mappings of prefixes used in the body of
+# the UCOLink Model specification are resolved using a specific precedence order,
+# for use in the generation of the UCOLink Model context.jsonld mappings to
+# namespaces. Any prefixes encountered in the UCOLink Model but not resolved by
+# the following precedence sources, are anonymously declared by linkml as
+# http://example.org/UNKNOWN/ rooted base URI's which should ideally be repaired
+# in one of the precedence lists.
+#
+# 1. The following 'prefixes:' delimited list has first precedence in resolution.
+
+prefixes:
+  GSSO: 'http://purl.obolibrary.org/obo/GSSO_'
+  INO: 'http://purl.obolibrary.org/obo/INO_'  # interactive network ontology
+  linkml: 'https://w3id.org/linkml/'
+  lm_core: 'https://w3id.org/lmodel/core/'
+  SIO: 'http://identifiers.org/sio/'
+  sumo: 'https://w3id.org/sumo/kb/'
+  wikidata.property: 'https://www.wikidata.org/wiki/Property:'
+
+  role: 'https://w3id.org/lmodel/uco-role/'
+  schema_uco_core: 'https://w3id.org/lmodel/uco-core/schema/'
+
+default_prefix: role
+default_range: string
+
+## ------------
+## ENUMS
+## ------------
+enums: {}
+
+## ------------
+## SUBSETS
+## ------------
+subsets: {}
+
+## ------------
+## TYPES
+## ------------
+imports:
+  - linkml:types
+  - schema_uco_core:uco_core
+
+types: {}
+
+## ------------
+## CLASSES
+## ------------
+classes:
+
+  BenevolentRole:
+    is_a: Role
+    description: >-
+      A benevolent role is a role with positive and/or beneficial intent.
+    broad_mappings:
+      - sumo:SubjectiveStrongPositiveAttribute
+      - sumo:SubjectiveWeakPositiveAttribute
+      - wikidata:Q16509717  # benevolence
+    narrow_mappings:
+      - lm_core:ActsUpstreamOfOrWithinPositiveEffect
+      - GSSO:005344  # benevolent sexism
+      - wikidata:Q446840  # benevolent dictatorship
+
+  MaliciousRole:
+    is_a: Role
+    description: >-
+      A malicious role is a role with malevolent intent.
+    broad_mappings:
+      - sumo:SubjectiveStrongNegativeAttribute
+      - sumo:SubjectiveWeakNegativeAttribute
+      - wikidata:Q16509717  # benevolence
+    narrow_mappings:
+      - INO:0000137  # negative regulator role
+      - wikidata:Q16963544  # malicious compliance
+
+  NeutralRole:
+    is_a: Role
+    description: >-
+      A neutral role is a role with impartial intent.
+    broad_mappings:
+      - NCIT:C154573  # neutral
+    narrow_mappings:
+      - wikidata:Q185963  # neutral country
+      - wikidata:Q3883802  # neutral mutation
+      - wikidata:Q202648  # referee
+
+  Role:
+    is_a: UcoObject
+    description: >-
+      A role is a usual or customary function based on contextual perspective.
+    exact_mappings:
+      - NCIT:C48835
+      - SIO:000016
+      - wikidata:Q214339
+      - wikidata:Q1707847  # role, acting
+      - wikidata:Q4897819
+
+...

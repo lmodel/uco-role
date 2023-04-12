@@ -1,0 +1,296 @@
+BASE <https://w3id.org/lmodel/uco-role/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX linkml: <https://w3id.org/linkml/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX core: <https://w3id.org/lmodel/uco-core/>
+
+
+linkml:String xsd:string
+
+linkml:Integer xsd:integer
+
+linkml:Boolean xsd:boolean
+
+linkml:Float xsd:float
+
+linkml:Double xsd:double
+
+linkml:Decimal xsd:decimal
+
+linkml:Time xsd:dateTime
+
+linkml:Date xsd:date
+
+linkml:Datetime xsd:dateTime
+
+linkml:DateOrDatetime linkml:DateOrDatetime
+
+linkml:Uriorcurie IRI
+
+linkml:Curie xsd:string
+
+linkml:Uri IRI
+
+linkml:Ncname xsd:string
+
+linkml:Objectidentifier IRI
+
+linkml:Nodeidentifier NONLITERAL
+
+core:StringType xsd:string
+
+core:LiteralType rdf:literal
+
+core:NonNegativeIntegerType xsd:nonNegativeInteger
+
+core:StatementType xsd:string
+
+core:IriType IRI
+
+core:BooleanType xsd:boolean
+
+core:HexBinaryType xsd:hexBinary
+
+core:Annotation CLOSED {
+    (  $core:Annotation_tes (  &core:Assertion_tes ;
+          rdf:type [ core:Assertion ] ? ;
+          core:object @core:UcoObject +
+       ) ;
+       rdf:type [ core:Annotation ] ?
+    )
+}
+
+core:Assertion  (
+    CLOSED {
+       (  $core:Assertion_tes (  &core:UcoObject_tes ;
+             rdf:type [ core:UcoObject ] ? ;
+             core:statement @linkml:String *
+          ) ;
+          rdf:type [ core:Assertion ] ?
+       )
+    } OR @core:Annotation
+)
+
+core:AttributedName CLOSED {
+    (  $core:AttributedName_tes (  &core:UcoObject_tes ;
+          rdf:type [ core:UcoObject ] ? ;
+          core:namingAuthority @linkml:String ?
+       ) ;
+       rdf:type [ core:AttributedName ] ?
+    )
+}
+
+<BenevolentRole> CLOSED {
+    (  $<BenevolentRole_tes> (  &<Role_tes> ;
+          rdf:type [ <Role> ] ?
+       ) ;
+       rdf:type [ <BenevolentRole> ] ?
+    )
+}
+
+core:Bundle CLOSED {
+    (  $core:Bundle_tes (  &core:EnclosingCompilation_tes ;
+          rdf:type [ core:EnclosingCompilation ] ?
+       ) ;
+       rdf:type [ core:Bundle ] ?
+    )
+}
+
+core:Compilation  (
+    CLOSED {
+       (  $core:Compilation_tes (  &core:UcoObject_tes ;
+             rdf:type [ core:UcoObject ] ?
+          ) ;
+          rdf:type [ core:Compilation ] ?
+       )
+    } OR @core:ContextualCompilation OR @core:EnclosingCompilation
+)
+
+core:ConfidenceFacet CLOSED {
+    (  $core:ConfidenceFacet_tes (  &core:Facet_tes ;
+          rdf:type [ core:Facet ] ? ;
+          core:confidence @core:NonNegativeIntegerType
+       ) ;
+       rdf:type [ core:ConfidenceFacet ] ?
+    )
+}
+
+core:ContextualCompilation  (
+    CLOSED {
+       (  $core:ContextualCompilation_tes (  &core:Compilation_tes ;
+             rdf:type [ core:Compilation ] ? ;
+             core:object @core:UcoObject +
+          ) ;
+          rdf:type [ core:ContextualCompilation ] ?
+       )
+    } OR @core:Grouping
+)
+
+core:ControlledVocabulary CLOSED {
+    (  $core:ControlledVocabulary_tes (  &core:UcoObject_tes ;
+          rdf:type [ core:UcoObject ] ? ;
+          core:constrainingVocabularyReference @core:IriType ? ;
+          core:constrainingVocabularyName @linkml:String ? ;
+          core:value @linkml:String
+       ) ;
+       rdf:type [ core:ControlledVocabulary ] ?
+    )
+}
+
+core:EnclosingCompilation  (
+    CLOSED {
+       (  $core:EnclosingCompilation_tes (  &core:Compilation_tes ;
+             rdf:type [ core:Compilation ] ? ;
+             core:object @core:UcoObject *
+          ) ;
+          rdf:type [ core:EnclosingCompilation ] ?
+       )
+    } OR @core:Bundle
+)
+
+core:ExternalReference CLOSED {
+    (  $core:ExternalReference_tes (  &core:UcoInherentCharacterizationThing_tes ;
+          rdf:type [ core:UcoInherentCharacterizationThing ] ? ;
+          core:referenceURL @core:IriType ? ;
+          core:definingContext @linkml:String ? ;
+          core:externalIdentifier @linkml:String ?
+       ) ;
+       rdf:type [ core:ExternalReference ] ?
+    )
+}
+
+core:Facet  (
+    {
+       (  $core:Facet_tes (  &core:UcoInherentCharacterizationThing_tes ;
+             rdf:type [ core:UcoInherentCharacterizationThing ] ?
+          ) ;
+          rdf:type [ core:Facet ] ?
+       )
+    } OR @core:ConfidenceFacet
+)
+
+core:Grouping CLOSED {
+    (  $core:Grouping_tes (  &core:ContextualCompilation_tes ;
+          rdf:type [ core:ContextualCompilation ] ? ;
+          core:context @linkml:String *
+       ) ;
+       rdf:type [ core:Grouping ] ?
+    )
+}
+
+core:IdentityAbstraction CLOSED {
+    (  $core:IdentityAbstraction_tes (  &core:UcoObject_tes ;
+          rdf:type [ core:UcoObject ] ?
+       ) ;
+       rdf:type [ core:IdentityAbstraction ] ?
+    )
+}
+
+core:Item CLOSED {
+    (  $core:Item_tes (  &core:UcoObject_tes ;
+          rdf:type [ core:UcoObject ] ?
+       ) ;
+       rdf:type [ core:Item ] ?
+    )
+}
+
+<MaliciousRole> CLOSED {
+    (  $<MaliciousRole_tes> (  &<Role_tes> ;
+          rdf:type [ <Role> ] ?
+       ) ;
+       rdf:type [ <MaliciousRole> ] ?
+    )
+}
+
+core:MarkingDefinitionAbstraction CLOSED {
+    (  $core:MarkingDefinitionAbstraction_tes (  &core:UcoObject_tes ;
+          rdf:type [ core:UcoObject ] ?
+       ) ;
+       rdf:type [ core:MarkingDefinitionAbstraction ] ?
+    )
+}
+
+core:ModusOperandi CLOSED {
+    (  $core:ModusOperandi_tes (  &core:UcoObject_tes ;
+          rdf:type [ core:UcoObject ] ?
+       ) ;
+       rdf:type [ core:ModusOperandi ] ?
+    )
+}
+
+<NeutralRole> CLOSED {
+    (  $<NeutralRole_tes> (  &<Role_tes> ;
+          rdf:type [ <Role> ] ?
+       ) ;
+       rdf:type [ <NeutralRole> ] ?
+    )
+}
+
+core:Relationship CLOSED {
+    (  $core:Relationship_tes (  &core:UcoObject_tes ;
+          rdf:type [ core:UcoObject ] ? ;
+          core:endTime @linkml:Datetime * ;
+          core:isDirectional @core:BooleanType ;
+          core:kindOfRelationship @linkml:String ? ;
+          core:source @core:UcoObject + ;
+          core:startTime @linkml:Datetime * ;
+          core:target @core:UcoObject
+       ) ;
+       rdf:type [ core:Relationship ] ?
+    )
+}
+
+<Role>  (
+    CLOSED {
+       (  $<Role_tes> (  &core:UcoObject_tes ;
+             rdf:type [ core:UcoObject ] ?
+          ) ;
+          rdf:type [ <Role> ] ?
+       )
+    } OR @<BenevolentRole> OR @<MaliciousRole> OR @<NeutralRole>
+)
+
+core:UcoInherentCharacterizationThing  (
+    CLOSED {
+       (  $core:UcoInherentCharacterizationThing_tes (  &core:UcoThing_tes ;
+             rdf:type [ core:UcoThing ] ?
+          ) ;
+          rdf:type [ core:UcoInherentCharacterizationThing ] ?
+       )
+    } OR @core:ExternalReference OR @core:Facet
+)
+
+core:UcoObject  (
+    CLOSED {
+       (  $core:UcoObject_tes (  &core:UcoThing_tes ;
+             rdf:type [ core:UcoThing ] ? ;
+             core:createdBy @linkml:String ? ;
+             dcterms:description @linkml:String * ;
+             core:externalReference @linkml:String * ;
+             core:hasFacet @linkml:String * ;
+             core:modifiedTime @linkml:Datetime * ;
+             rdfs:label @linkml:String ? ;
+             core:objectMarking @core:MarkingDefinitionAbstraction * ;
+             core:objectCreatedTime @linkml:Datetime ? ;
+             core:specVersion @linkml:String ? ;
+             core:tag @linkml:String *
+          ) ;
+          rdf:type [ core:UcoObject ] ?
+       )
+    } OR @core:Assertion OR @core:AttributedName OR @core:Compilation OR @core:ControlledVocabulary OR @core:IdentityAbstraction OR
+    @core:Item OR @core:MarkingDefinitionAbstraction OR @core:ModusOperandi OR @core:Relationship OR @<Role>
+)
+
+core:UcoThing  (
+    @core:UcoInherentCharacterizationThing OR @core:UcoObject
+)
+
+core:UcoThing_struct {
+    (  $core:UcoThing_tes rdf:type . * ;
+       rdf:type [ core:UcoThing ] ?
+    )
+}
+
+

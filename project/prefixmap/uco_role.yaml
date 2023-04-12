@@ -1,0 +1,89 @@
+{
+   "BFO": "http://purl.obolibrary.org/obo/BFO_",
+   "CSO": "https://cso.kmi.open.ac.uk/topics/",
+   "GSSO": "http://purl.obolibrary.org/obo/GSSO_",
+   "IAO": "http://purl.obolibrary.org/obo/IAO_",
+   "INO": "http://purl.obolibrary.org/obo/INO_",
+   "NCIT": "http://purl.obolibrary.org/obo/NCIT_",
+   "REPR": "https://w3id.org/reproduceme#",
+   "SEPIO": "http://purl.obolibrary.org/obo/SEPIO_",
+   "SIO": "http://identifiers.org/sio/",
+   "WIKIDATA": "http://identifiers.org/wikidata/",
+   "core": "https://w3id.org/lmodel/uco-core/",
+   "csrc": "https://csrc.nist.gov/glossary/term/",
+   "dcid": "https://datacommons.org/browser/",
+   "dcterms": "http://purl.org/dc/terms/",
+   "gr": "http://purl.org/goodrelations/v1#",
+   "linkml": "https://w3id.org/linkml/",
+   "lm_core": "https://w3id.org/lmodel/core/",
+   "om": "http://www.ontology-of-units-of-measure.org/resource/om-2/",
+   "owl": "http://www.w3.org/2002/07/owl#",
+   "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+   "role": "https://w3id.org/lmodel/uco-role/",
+   "schema": "http://schema.org/",
+   "schema_uco_core": "https://w3id.org/lmodel/uco-core/schema/",
+   "skos": "http://www.w3.org/2004/02/skos/core#",
+   "sumo": "https://w3id.org/sumo/kb/",
+   "wikidata": "http://identifiers.org/wikidata/",
+   "wikidata.property": "https://www.wikidata.org/wiki/Property:",
+   "Annotation": {
+      "@id": "core:Annotation"
+   },
+   "Assertion": {
+      "@id": "core:Assertion"
+   },
+   "AttributedName": {
+      "@id": "core:AttributedName"
+   },
+   "Bundle": {
+      "@id": "core:Bundle"
+   },
+   "Compilation": {
+      "@id": "core:Compilation"
+   },
+   "ConfidenceFacet": {
+      "@id": "core:ConfidenceFacet"
+   },
+   "ContextualCompilation": {
+      "@id": "core:ContextualCompilation"
+   },
+   "ControlledVocabulary": {
+      "@id": "core:ControlledVocabulary"
+   },
+   "EnclosingCompilation": {
+      "@id": "core:EnclosingCompilation"
+   },
+   "ExternalReference": {
+      "@id": "core:ExternalReference"
+   },
+   "Facet": {
+      "@id": "core:Facet"
+   },
+   "Grouping": {
+      "@id": "core:Grouping"
+   },
+   "IdentityAbstraction": {
+      "@id": "core:IdentityAbstraction"
+   },
+   "Item": {
+      "@id": "core:Item"
+   },
+   "MarkingDefinitionAbstraction": {
+      "@id": "core:MarkingDefinitionAbstraction"
+   },
+   "ModusOperandi": {
+      "@id": "core:ModusOperandi"
+   },
+   "Relationship": {
+      "@id": "core:Relationship"
+   },
+   "UcoInherentCharacterizationThing": {
+      "@id": "core:UcoInherentCharacterizationThing"
+   },
+   "UcoObject": {
+      "@id": "core:UcoObject"
+   },
+   "UcoThing": {
+      "@id": "core:UcoThing"
+   }
+}
